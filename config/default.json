@@ -1,5 +1,5 @@
 {
-    "mongoURI":"mongodb+srv://gaytri02:X73MfucJV3MDJKi5@devconnecto.d0fri.mongodb.net/?retryWrites=true&w=majority&appName=DevConnecto",
+    "mongoURI":"mongodb+srv://gaytri02:Sangita71@devconnecto.d0fri.mongodb.net/?retryWrites=true&w=majority&appName=DevConnecto",
     "jwtSecret":"mysecrettoken",
     "githubClientId":"Ov23liauxLfIYHNTvRZj",
     "githubSecret":"ef2c86bde8e0d0c3fc57a431b203eeededc7ba35"
