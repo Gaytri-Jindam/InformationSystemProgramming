@@ -25,7 +25,9 @@ const Login = ({ login, isAuthenticated }) => {
     //Redirect to login
     if(isAuthenticated)
     {
-      return <Navigate to="/dashboard"/>
+      return <Link to="/dashboard"></Link>
+
+      //return <Navigate to="/dashboard"/>
     }
     return  <Fragment>
 <h1 className="large text-primary">Sign In</h1>

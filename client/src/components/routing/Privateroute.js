@@ -7,7 +7,7 @@ const Privateroute = ({ component: Component, auth: { isAuthenticated, loading }
   if (!isAuthenticated && !loading) {
     return <Navigate to="/login" />;
   }
-  return Component;
+  return <Navigate to="/dashboard" />;
 };
 
 Privateroute.propTypes = {
