@@ -25,9 +25,8 @@ const Login = ({ login, isAuthenticated }) => {
     //Redirect to login
     if(isAuthenticated)
     {
-      return <Link to="/dashboard"></Link>
+      return <Navigate to="/dashboard" />;
 
-      //return <Navigate to="/dashboard"/>
     }
     return  <Fragment>
 <h1 className="large text-primary">Sign In</h1>
@@ -63,4 +62,4 @@ const Login = ({ login, isAuthenticated }) => {
 isAuthenticated: state.auth.isAuthenticated
  });
 
-export default connect(mapStateToProps,{ login})(Login);
+export default connect(mapStateToProps,{ login })(Login);

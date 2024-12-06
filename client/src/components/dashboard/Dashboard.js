@@ -1,17 +1,18 @@
-import React , { useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { getCurrentProfile } from '../../actions/profile'
+import React , { Fragment, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Spinner from '../layout/Spinner';
+import { getCurrentProfile } from '../../actions/profile';
 
-const Dashboard = ({ getCurrentProfile, auth, profile}) => {
-// console.log(" In dashboard");
-//   useEffect(() => {
-//     getCurrentProfile();
-//   }, []);
+const Dashboard = ({ getCurrentProfile, auth, profile: { profile, loading }}) => {
+ console.log(" In dashboard");
+ useEffect(() => {
+     getCurrentProfile();
+  }, []);
 
-  return  <div> Dashboard </div>;
+  return  loading && profile === null ? <Spinner /> : <Fragment> test </Fragment>;
   
-}
+};
 
 Dashboard.propTypes = {
 getCurrentProfile: PropTypes.func.isRequired,
