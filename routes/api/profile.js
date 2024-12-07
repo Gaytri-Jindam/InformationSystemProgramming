@@ -189,6 +189,7 @@ router.put('/experience',[
       current,
       description
     } = req.body;
+    console.log(" backend ",req);
 
     const newExp = {
       title,

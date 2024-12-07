@@ -3,7 +3,8 @@ import { setAlert } from './alert';
 
 import {
     GET_PROFILE,
-    PROFILE_ERROR
+    PROFILE_ERROR,
+    UPDATE_PROFILE
 } from './types';
 import { header } from 'express-validator';
 
@@ -67,3 +68,77 @@ try {
     });
     }
     };
+
+export const addExperience = ( formData, navigate) =>
+    async dispatch =>
+    {
+        try {
+            const config ={
+                headers : {
+                    'Content-Type' : 'application/json'
+                }
+            }
+            console.log(" addExperience");
+            const res = await axios.put('/api/profile/experience',formData,config);
+            console.log(" addExperience",res);
+
+            dispatch({
+                type: UPDATE_PROFILE,
+                payload: res.data
+            });
+            dispatch(setAlert('Experience Added ','Success'));
+            
+                navigate('/dashboard');
+        
+        } catch (error) {
+            const errors = error.response?.data?.errors;
+            if (errors) {
+                errors.forEach((err) => dispatch(setAlert(err.msg, 'danger')));
+            }
+    
+            dispatch({
+                type: PROFILE_ERROR,
+                payload: {
+                    msg: error.response?.statusText || 'Server Error',
+                    status: error.response?.status || 500
+                }
+            });
+                }
+        
+    };
+
+    export const addEducation = ( formData, navigate) =>
+        async dispatch =>
+        {
+            try {
+                const config ={
+                    headers : {
+                        'Content-Type' : 'application/json'
+                    }
+                }
+                const res = await axios.put('/api/profile/education',formData,config);
+            
+                dispatch({
+                    type: UPDATE_PROFILE,
+                    payload: res.data
+                });
+                dispatch(setAlert('Education Added ','Success'));
+                
+                    navigate('/dashboard');
+            
+            } catch (error) {
+                const errors = error.response?.data?.errors;
+                if (errors) {
+                    errors.forEach((err) => dispatch(setAlert(err.msg, 'danger')));
+                }
+        
+                dispatch({
+                    type: PROFILE_ERROR,
+                    payload: {
+                        msg: error.response?.statusText || 'Server Error',
+                        status: error.response?.status || 500
+                    }
+                });
+                        }
+            
+        };
