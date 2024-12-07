@@ -38,13 +38,13 @@ try {
             'Content-Type' : 'application/json'
         }
     }
-    const res = await axios.get('/api/profile',formData,config);
+    const res = await axios.post('/api/profile',formData,config);
 
     dispatch({
         type: GET_PROFILE,
         payload: res.data
     });
-
+    console.log(" edit" , edit);
     dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'Success'));
     if(!edit)
     {

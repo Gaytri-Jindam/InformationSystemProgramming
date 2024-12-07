@@ -12,7 +12,6 @@ const { check, validationResult } = require('express-validator');
 //@access private
 router.get('/me',auth, async(req, res) => {
 try{
-console.log("In profile backend ");
     const profile = await Profile.findOne({ user: req.user.id}).populate('user',
         ['name','avatar']
     );
@@ -28,7 +27,7 @@ console.log("In profile backend ");
 }
 });
 
-//@route Get api/profile
+//@route Post api/profile
 //@desc  Create or update user profile
 //@access private
 router.post('/',

@@ -17,9 +17,7 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.token);
     }
     try {
-        console.log('Axios default headers:', axios.defaults.headers.common);
         const res = await axios.get('/api/auth');
-        console.log(" loadUser ",res);
 
         dispatch({
             type: USER_LOADED,
