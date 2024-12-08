@@ -43,7 +43,7 @@ const EditProfile = ({ profile: { profile, loading}, createProfile, getCurrentPr
     
 
         });
-    }, [loading]);
+    }, [loading,getCurrentProfile]);
     const {
         company,
         website,
