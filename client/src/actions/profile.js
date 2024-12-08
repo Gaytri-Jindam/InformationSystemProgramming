@@ -108,7 +108,7 @@ try {
         payload: res.data
     });
     console.log(" edit" , edit);
-    dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'Success'));
+    dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
     if(!edit)
     {
         navigate('/dashboard');
@@ -148,7 +148,7 @@ export const addExperience = ( formData, navigate) =>
                 type: UPDATE_PROFILE,
                 payload: res.data
             });
-            dispatch(setAlert('Experience Added ','Success'));
+            dispatch(setAlert('Experience Added ','success'));
             
                 navigate('/dashboard');
         
@@ -184,7 +184,7 @@ export const addExperience = ( formData, navigate) =>
                     type: UPDATE_PROFILE,
                     payload: res.data
                 });
-                dispatch(setAlert('Education Added ','Success'));
+                dispatch(setAlert('Education Added ','success'));
                 
                     navigate('/dashboard');
             
@@ -214,7 +214,7 @@ export const deleteExperience = id => async dispatch => {
             type:UPDATE_PROFILE,
             payload: res.data
         });
-        dispatch(setAlert('Experience removed ','Success'));
+        dispatch(setAlert('Experience removed ','success'));
 
     } catch (error) {
         dispatch({
@@ -234,7 +234,7 @@ export const deleteEducation = id => async dispatch => {
             type:UPDATE_PROFILE,
             payload: res.data
         });
-        dispatch(setAlert('Education removed ','Success'));
+        dispatch(setAlert('Education removed ','success'));
 
     } catch (error) {
         dispatch({
@@ -254,7 +254,7 @@ export const deleteAccount = () => async dispatch => {
             dispatch ({type:CLEAR_PROFILE});
             dispatch ({type:ACCOUNT_DELETED});
 
-            dispatch(setAlert('Your account has been permanantly deleted '));
+            dispatch(setAlert('Your account has been permanantly deleted ','danger'));
     
         } catch (error) {
             dispatch({

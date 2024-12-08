@@ -1,3 +1,4 @@
+
 const express = require('express');
 const { check, validationResult } = require('express-validator');
 const router = express.Router();
@@ -34,12 +35,20 @@ router.post('/',
                 }]
             })
         }
-        //Get users gravatar
-const avatar = gravatar.url(email,{
-    s: '200',
-    r: 'pg',
-    d:'mm'
-})
+
+        const { default: normalize } = await import('normalize-url');
+
+//Get users gravatar
+const avatar = normalize(
+    gravatar.url(email, {
+      s: '200',
+      r: 'pg',
+      d: 'mm'
+    }),
+    { forceHttps: true }
+  );
+
+console.log('avatar ',avatar); // Check the generated URL
 
 user = new User({
     name,
