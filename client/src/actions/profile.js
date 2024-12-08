@@ -58,10 +58,11 @@ export const getProfileByID = userId =>
     
 try {
     const res = await axios.get(`/api/profile/user/${userId}`);
+    const profileData = Array.isArray(res.data) ? res.data[0] : res.data;
 
     dispatch({
         type: GET_PROFILE,
-        payload: res.data
+        payload: profileData
     });
 } catch (error) {
     dispatch({
