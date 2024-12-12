@@ -32,3 +32,6 @@ As client and server will execute concurrently.
 
 Technologies:
 React , Redux, Express, Node.js and MongoDB.
+
+Google Document Link
+https://docs.google.com/document/d/1m1MNS2AvLu3CHjdMLcFm6ZaMWPvhfxP-qIwT5B6NsCc/edit?usp=sharing
